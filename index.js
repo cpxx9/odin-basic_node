@@ -1,9 +1,10 @@
+import {} from "dotenv/config";
 import fs from "fs/promises";
 import http from "http";
 import url from "url";
 import path from "path";
 
-const PORT = 8000;
+console.log(process.env.NODE_ENV);
 
 const __filename = url.fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -35,6 +36,6 @@ const server = http.createServer(async (req, res) => {
   }
 });
 
-server.listen(PORT, () => {
-  console.log(`Server running on port ${PORT}`);
+server.listen(process.env.PORT, () => {
+  console.log(`Server running on port ${process.env.PORT}`);
 });
